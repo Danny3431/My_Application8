@@ -7,14 +7,14 @@
     android:background="@drawable/background_shape"
     android:gravity="center">
 
-<ImageView
+    <ImageView
 
 
-android:id="@+id/pokemon_icon"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:src="@drawable/pokeball"
-android:contentDescription="@string/icon_description" />
+        android:id="@+id/dialog_pokemon_icon"
+        android:layout_width="383dp"
+        android:layout_height="371dp"
+        android:contentDescription="@string/icon_description"
+        android:src="@drawable/pokeball" />
 
 <TextView
 android:id="@+id/pokemon_name"

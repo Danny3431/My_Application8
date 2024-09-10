@@ -1,5 +1,6 @@
 package cl.bootcamp.myapplication8;
 
+import static cl.bootcamp.myapplication8.R.id.dialog_pokemon_icon;
 import static cl.bootcamp.myapplication8.R.id.pokemon_icon;
 
 import android.os.Bundle;
@@ -19,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RadioGroup radioGroup;
     private Button buttonValidate;
+    private ImageView pokemonIcon; // Declara el ImageView
     private String currentPokemon = "pokeball"; // Para almacenar el Pokémon actual
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         radioGroup = findViewById(R.id.radioGroup);
         buttonValidate = findViewById(R.id.button_validate);
+        pokemonIcon = findViewById(R.id.pokemon_icon); // Inicializa el ImageView
+        pokemonIcon.setImageResource(R.drawable.pokeball); // Establece la imagen inicial
+        pokemonIcon.setVisibility(View.GONE); // Oculta el icono al inicio
 
         buttonValidate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     private void showPokemonDialog(String pokemonName) {
         // Crea el diálogo utilizando el diseño personalizado
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -52,14 +57,14 @@ public class MainActivity extends AppCompatActivity {
         builder.setView(dialogView);
 
         // Configura los elementos del diálogo
-        ImageView pokemonIcon = dialogView.findViewById(pokemon_icon);
+        ImageView dialogPokemonIcon = dialogView.findViewById(dialog_pokemon_icon);
         TextView pokemonNameTextView = dialogView.findViewById(R.id.pokemon_name);
         Button buttonAccept = dialogView.findViewById(R.id.button_accept);
         Button buttonCancel = dialogView.findViewById(R.id.button_cancel);
 
         // Asigna el nombre y la imagen del Pokémon
         pokemonNameTextView.setText(pokemonName);
-        setPokemonIcon(pokemonName, pokemonIcon);
+        setPokemonIcon(pokemonName, dialogPokemonIcon);
 
         // Crea el diálogo
         builder.setTitle("Pokémon Seleccionado es");
@@ -128,8 +133,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void resetSelection() {
         radioGroup.clearCheck(); // Limpia la selección de RadioButtons
-        // Establece el fondo del ConstraintLayout
+
+        // Establece el fondo del ConstraintLayout a la imagen original
         ConstraintLayout mainLayout = findViewById(R.id.main);
-        mainLayout.setBackgroundResource(R.drawable.pokebola);
+        mainLayout.setBackgroundResource(R.drawable.pokebola); // Imagen original
+
+        // Restablece el icono del Pokémon a pokeball.png
+        pokemonIcon.setImageResource(R.drawable.pokeball);
+        pokemonIcon.setVisibility(View.VISIBLE); // Asegúrate de que sea visible
     }
 }
