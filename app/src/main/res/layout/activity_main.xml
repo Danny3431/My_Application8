@@ -18,11 +18,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
     <ImageView
-        android:id="@+id/pokemon_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone" /> <!-- Inicialmente oculto -->
+    android:id="@+id/pokemon_icon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="visible"
+    app:layout_constraintTop_toBottomOf="@+id/fragment_container"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/choicePokm" />
 
     <TextView
         android:id="@+id/choicePokm"
@@ -59,7 +64,7 @@
             android:text="@string/opt1" />
 
         <RadioButton
-            android:id="@+id/bulbassau"
+            android:id="@+id/bulbasaur"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
@@ -77,7 +82,7 @@
         android:id="@+id/button_validate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="@string/valid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -8,8 +8,6 @@
     android:gravity="center">
 
     <ImageView
-
-
         android:id="@+id/dialog_pokemon_icon"
         android:layout_width="383dp"
         android:layout_height="371dp"

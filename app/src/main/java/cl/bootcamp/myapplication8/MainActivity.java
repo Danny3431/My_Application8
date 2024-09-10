@@ -2,6 +2,9 @@ package cl.bootcamp.myapplication8;
 
 import static cl.bootcamp.myapplication8.R.id.dialog_pokemon_icon;
 import static cl.bootcamp.myapplication8.R.id.pokemon_icon;
+import static cl.bootcamp.myapplication8.R.layout.dialog_pokemon;
+import cl.bootcamp.myapplication8.BackgroundFragment;
+
 
 import android.os.Bundle;
 import android.view.View;
@@ -81,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         buttonCancel.setOnClickListener(v -> {
             dialog.dismiss(); // Cierra el diálogo
             resetSelection(); // Reinicia la selección
+            changeToBackgroundFragment(); // Cambia al BackgroundFragment
+
         });
 
         dialog.show(); // Muestra el diálogo
@@ -120,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new PokemonFragment() {
                     @Override
                     protected int getPokemonImage() {
-                        return R.drawable.pokeball; // Icono por defecto
+                        return R.drawable.pokebola;
                     }
                 };
                 break;
@@ -138,8 +143,12 @@ public class MainActivity extends AppCompatActivity {
         ConstraintLayout mainLayout = findViewById(R.id.main);
         mainLayout.setBackgroundResource(R.drawable.pokebola); // Imagen original
 
-        // Restablece el icono del Pokémon a pokeball.png
-        pokemonIcon.setImageResource(R.drawable.pokeball);
-        pokemonIcon.setVisibility(View.VISIBLE); // Asegúrate de que sea visible
+
+    }
+    private void changeToBackgroundFragment() {
+        Fragment fragment = new BackgroundFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .commit();
     }
 }
