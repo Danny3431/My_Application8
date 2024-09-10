@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="pokemon">#DC0909</color>
+    <color name="water">#6890F0</color>
+    <color name="fire">#F08030</color>
+    <color name="grass">#78C850</color>
+    <color name="yellow">#F8D030</color>
+</resources>
